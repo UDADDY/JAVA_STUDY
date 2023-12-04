@@ -16,14 +16,12 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 
     @Override
     public void display() {
-        System.out.println("평균 기온: " + getAverageTemperature());
-        System.out.println("최저 기온: " + getMinimumTemperature());
-        System.out.println("최고 기온: " + getMaximumTemperature());
+        System.out.println("평균/최고/최저 온도 = " + getAverageTemperature() + "/" + getMaximumTemperature() + "/" + getMinimumTemperature());
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        temperatures.add(temp);
+    public void update() {
+        temperatures.add(weatherData.getTemperature());
         display();
     }
 
